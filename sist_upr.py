@@ -33,7 +33,7 @@ class Admin(User):
     def add_user(self, user):
         if isinstance(user, User) and user not in self.__users_list:
             self.__users_list.append(user)
-            print(f"User {user.get_name()} added.")
+            print(f"User {user.get_name()} добавлен.")
         else:
             print("Недопустимый пользователь или пользователь, который уже существует.")
 
@@ -41,7 +41,7 @@ class Admin(User):
     def remove_user(self, user):
         if user in self.__users_list:
             self.__users_list.remove(user)
-            print(f"User {user.get_name()} removed.")
+            print(f"User {user.get_name()} удалён.")
         else:
             print("Пользователь не найден.")
 
@@ -59,17 +59,17 @@ user2 = User(2, "Евстолий")
 admin = Admin(99, "AdminUser")
 
 # Администратор добавляет пользователей
-admin.add_user(user1)  # Выведет: User Alice added.
-admin.add_user(user2)  # Выведет: User Bob added.
+admin.add_user(user1)  # Выведет: User Агафья added.
+admin.add_user(user2)  # Выведет: User Евстолий added.
 
 # Администратор пытается добавить того же пользователя снова
-admin.add_user(user1)  # Выведет: Invalid user or user already exists.
+admin.add_user(user1)  # Выведет: Недопустимый пользователь или пользователь, который уже существует.
 
 # Администратор удаляет пользователя
-admin.remove_user(user1)  # Выведет: User Alice removed.
+admin.remove_user(user1)  # Выведет: User Агафья removed.
 
 # Попытка удалить несуществующего пользователя
-admin.remove_user(user1)  # Выведет: User not found.
+admin.remove_user(user1)  # Выведет: Пользователь не найден.
 
 # Получение списка пользователей
 for user in admin.get_users_list():
